@@ -22,7 +22,8 @@ SECRET_KEY = 'django-insecure-bagzpeg*%=!%^!vt3^p45txiq-&fx#0egb8%ls(y0d+s6i)e0t
 DEBUG = True
 
 ALLOWED_HOSTS = [
-"127.0.0.1",  # For local testing
+"127.0.0.1",
+'live-up.onrender.com'  # For local testing
 "localhost",
 ]
 
