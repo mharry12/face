@@ -23,8 +23,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 "127.0.0.1",
-'live-up.onrender.com',  # For local testing
-"localhost",
+'live-up.onrender.com',  
 ]
 
 # Application definition
