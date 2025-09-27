@@ -85,7 +85,7 @@ AUTHENTICATION_BACKENDS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-
+    "https://faceebook-eight.vercel.app"
 
 ]
 SIMPLE_JWT = {
