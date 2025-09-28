@@ -31,13 +31,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     is_creator = models.BooleanField(default=False)
+
+    # ✅ Only one is_staff field
     is_staff = models.BooleanField(default=False)
 
-    # ✅ Add this field for user roles
-    role = models.CharField(max_length=20, choices=ROLE.choices, default=ROLE.CUSTOMER)
-
-    is_staff = models.BooleanField(default=False)
+    # ✅ Keep is_active, but only once
     is_active = models.BooleanField(default=True)
+
+    # ✅ Role field
+    role = models.CharField(max_length=20, choices=ROLE.choices, default=ROLE.CUSTOMER)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

@@ -55,5 +55,5 @@ class ImagePostSerializer(serializers.ModelSerializer):
             'id', 'creator', 'title', 'description',
             'image', 'views', 'uploaded_at'
         ]
-        read_only_fields = ['views', 'uploaded_at']
+        read_only_fields = ['views', 'uploaded_at'] 
 
