@@ -121,39 +121,13 @@ AUTH_USER_MODEL = 'user.User'  # Replace 'user.User' with your actual app + mode
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL'),
-#         conn_max_age=600,
-#         ssl_require=True  # recommended for production
-#     )
-# }
-# if os.getenv("DATABASE_URL"):
-#     # Production / Supabase
-#     DATABASES = {
-#         "default": dj_database_url.config(
-#             default=os.environ.get("DATABASE_URL"),
-#             conn_max_age=600,
-#             ssl_require=True
-#         )
-#     }
-# else:
-#     # Local development fallback (SQLite)
-#     DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.sqlite3",
-#             "NAME": BASE_DIR / "db.sqlite3",
-#         }
-#     }
-
 if os.getenv("DATABASE_URL"):
     # Production / Supabase
     DATABASES = {
         "default": dj_database_url.config(
             default=os.environ.get("DATABASE_URL"),
             conn_max_age=600,
-            ssl_require=True
+            ssl_require=True  # force SSL in production
         )
     }
 else:
@@ -165,12 +139,15 @@ else:
         }
     }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
+
+# CORS Configuration
+# https://pypi.org/project/django-cors-headers/
+
+
+
+
+
+
 
 
 CORS_ALLOW_CREDENTIALS = True
