@@ -10,8 +10,21 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ['email', 'username', 'password', 'profile_pic']
 
     def create(self, validated_data):
-        validated_data['is_creator'] = True  # ✅ Set role to creator
-        return User.objects.create_user(**validated_data)
+        profile_pic = validated_data.pop('profile_pic', None)
+
+        user = User.objects.create_user(
+            email=validated_data['email'],
+            username=validated_data['username'],
+            password=validated_data['password'],
+        )
+
+        user.is_creator = True
+
+        if profile_pic:
+            user.profile_pic = profile_pic
+
+        user.save()
+        return user
 
 
 class AdminSignupSerializer(serializers.ModelSerializer):
